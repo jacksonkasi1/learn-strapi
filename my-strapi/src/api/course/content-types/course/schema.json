@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "posts",
+  "collectionName": "courses",
   "info": {
-    "singularName": "post",
-    "pluralName": "posts",
-    "displayName": "Post",
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
     "description": ""
   },
   "options": {
@@ -15,11 +15,9 @@
     "title": {
       "type": "string",
       "required": true,
-      "unique": true,
-      "maxLength": 150,
-      "minLength": 4
+      "unique": true
     },
-    "content": {
+    "description": {
       "type": "richtext",
       "required": true
     },
@@ -28,29 +26,19 @@
       "targetField": "title",
       "required": true
     },
-    "cover": {
+    "images": {
       "type": "media",
       "multiple": true,
       "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "videos"
       ]
-    },
-    "authors": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "admin::user"
     },
     "tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
-    },
-    "seo": {
-      "displayName": "seoInformation",
-      "type": "component",
-      "repeatable": false,
-      "component": "seo.seo-information"
     }
   }
 }
